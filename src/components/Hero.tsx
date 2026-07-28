@@ -14,18 +14,16 @@ export function Hero() {
           <p className="eyebrow">Autonomous last-thirty-feet delivery</p>
 
           <h1 className="hero__title">
-            A robot and a truck,
+            The truck solved the mile.
             <br />
-            <em>built as one loop.</em>
+            <em>Nobody solved the walk.</em>
           </h1>
         </Reveal>
 
         <Reveal className="hero__foot" delay={180}>
           <p className="lede hero__lede">
-            ropost is both halves: a legged robot with wheels for feet, and a delivery truck
-            modified to carry, dock, and reload it. The robot deploys at the curb, sets the
-            package at the door, and latches back on — then pulls the next package off the rack
-            while the truck is already driving to the next stop.
+            Ropost is filling the gap between delivery trucks and front doors using autonomous
+            carrier robots. Scroll to see how we do it.
           </p>
 
           <div className="hero__actions">
@@ -46,10 +44,10 @@ export function Hero() {
         <div className="hero__ticker-track">
           {Array.from({ length: 2 }, (_, i) => (
             <span key={i}>
-              <span>Drive where it can</span>
-              <span>Walk where it must</span>
-              <span>Place, don't drop</span>
-              <span>Latch, reload, repeat</span>
+              <span>Wheels for flat ground</span>
+              <span>Legs for curbs and steps</span>
+              <span>Docks to the truck</span>
+              <span>Reloads in transit</span>
             </span>
           ))}
         </div>

@@ -5,7 +5,6 @@ import { HowItWorks } from "./components/HowItWorks";
 import { Nav } from "./components/Nav";
 import { PorchGap } from "./components/PorchGap";
 import { ScrollProgress } from "./components/ScrollProgress";
-import { System } from "./components/System";
 
 export default function App() {
   return (
@@ -16,7 +15,6 @@ export default function App() {
         <Hero />
         <PorchGap />
         <HowItWorks />
-        <System />
         <Contact />
       </main>
       <Footer />

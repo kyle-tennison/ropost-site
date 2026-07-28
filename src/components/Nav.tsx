@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 const LINKS = [
   { href: "#gap", label: "The gap" },
   { href: "#how", label: "How it works" },
-  { href: "#system", label: "The system" },
 ];
 
 export function Nav() {

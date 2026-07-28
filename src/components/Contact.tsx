@@ -23,13 +23,11 @@ export function Contact() {
         <Reveal>
           <p className="eyebrow">Where we are</p>
           <h2>
-            Early enough to <em>build it right.</em>
+            We're building it <em>now.</em>
           </h2>
           <p className="lede contact__lede">
-            The design is in development. We're talking now with fleet operators and logistics
-            teams who feel the last thirty feet in their numbers, with investors who like hard
-            mechanical problems, and with roboticists who'd rather build the thing than simulate
-            it.
+            The design is in development. If you run a delivery fleet, invest in hardware, or
+            build robots, we'd like to talk.
           </p>
 
           <form className="contact__form" onSubmit={handleSubmit}>

@@ -8,22 +8,22 @@ const STEPS = [
   {
     Icon: Truck,
     label: "Arrive",
-    body: "The vehicle pulls up to the curb like it always has. No dedicated lane, no sidewalk permit, no infrastructure at the house.",
+    body: "The truck stops at the curb as it does today. No dedicated lane, no permit, nothing installed at the house.",
   },
   {
     Icon: Bot,
     label: "Deploy",
-    body: "The robot releases from its dock with the package already in its grasp and drives down the walkway — wheels on the flat, legs for the curb and the steps.",
+    body: "The robot releases from its dock with the package already in its grasp. Wheels on the flat, legs for the curb and the steps.",
   },
   {
     Icon: PackageCheck,
     label: "Place",
-    body: "At the door the arm lowers and releases. Placed, not dropped, and out of the weather where the recipient expects to find it.",
+    body: "At the door the arm lowers and releases the package. It is placed rather than dropped, under cover where there is any.",
   },
   {
     Icon: Repeat,
     label: "Latch & reload",
-    body: "It returns, aligns to the dock, and latches back onto the vehicle. The next package comes off the rack in transit, so it's ready before the next stop is.",
+    body: "It returns, aligns to the dock, and latches on. The next package comes off the rack in transit, so it's ready before the truck stops.",
   },
 ];
 
@@ -36,13 +36,13 @@ export function HowItWorks() {
       <div className="shell">
         <div className="section__head">
           <Reveal>
-            <p className="eyebrow">The loop</p>
+            <p className="eyebrow">How it works</p>
             <h2>
-              One robot, one vehicle, <em>no idle time.</em>
+              One robot, one vehicle, <em>less idle time.</em>
             </h2>
             <p className="lede">
-              The whole design follows from a single constraint: the robot has to get itself back
-              on the truck, unassisted, every single time.
+              The design is constrained by one requirement: the robot has to return to the truck
+              and dock without help.
             </p>
           </Reveal>
         </div>

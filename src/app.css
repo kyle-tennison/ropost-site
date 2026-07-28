@@ -308,6 +308,17 @@ em {
   font-size: 0.97rem;
 }
 
+.card__cite {
+  display: block;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--hairline);
+  font-size: 0.76rem;
+  font-style: normal;
+  line-height: 1.45;
+  color: var(--cream-45);
+}
+
 /* the line that lands the section */
 .gap__close {
   margin-top: clamp(2.5rem, 5vw, 3.75rem);
@@ -418,52 +429,6 @@ em {
 
 @media (max-width: 620px) {
   .how__steps {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ============================================================== system */
-
-.system__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-top: clamp(3rem, 6vw, 4.5rem);
-}
-
-.cap {
-  padding: 2.1rem 1.8rem;
-  border: 1px solid var(--hairline);
-  border-radius: var(--radius);
-  background: rgb(38 27 18 / 0.55);
-  transition:
-    background-color 0.5s var(--ease),
-    border-color 0.5s var(--ease);
-}
-
-.cap:hover {
-  background: rgb(51 36 26 / 0.8);
-  border-color: rgb(224 190 149 / 0.36);
-}
-
-.cap h3 {
-  font-size: 1.32rem;
-  margin-bottom: 0.7rem;
-}
-
-.cap p {
-  color: var(--cream-70);
-  font-size: 0.95rem;
-}
-
-@media (max-width: 1000px) {
-  .system__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .system__grid {
     grid-template-columns: 1fr;
   }
 }
