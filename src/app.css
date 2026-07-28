@@ -308,6 +308,23 @@ em {
   font-size: 0.97rem;
 }
 
+/* the line that lands the section */
+.gap__close {
+  margin-top: clamp(2.5rem, 5vw, 3.75rem);
+  padding-top: clamp(2rem, 4vw, 2.75rem);
+  border-top: 1px solid var(--hairline);
+}
+
+.gap__close p {
+  font-family: var(--display);
+  font-variation-settings: var(--soft);
+  font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+  line-height: 1.25;
+  letter-spacing: -0.018em;
+  color: var(--kraft-300);
+  max-width: 30ch;
+}
+
 /* ======================================================== how it works */
 
 .how {
@@ -439,22 +456,25 @@ em {
   font-size: 0.95rem;
 }
 
-.cap--quote {
-  display: flex;
-  align-items: center;
-  background: linear-gradient(150deg, var(--kraft-600), var(--ink-700));
-  border-color: rgb(224 190 149 / 0.3);
+/* full-width band under the three cards */
+.system__quote {
+  margin-top: 1.25rem;
+  padding: clamp(2.25rem, 4.5vw, 3.25rem) clamp(1.8rem, 4vw, 3rem);
+  border: 1px solid rgb(224 190 149 / 0.3);
+  border-radius: var(--radius);
+  background: linear-gradient(115deg, var(--kraft-600), var(--ink-700) 72%);
 }
 
-.cap--quote blockquote {
+.system__quote blockquote {
   margin: 0;
   font-family: var(--display);
   font-variation-settings: "SOFT" 100, "WONK" 1;
   font-style: italic;
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
-  line-height: 1.25;
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  line-height: 1.22;
   letter-spacing: -0.015em;
   text-wrap: balance;
+  max-width: 34ch;
 }
 
 @media (max-width: 1000px) {

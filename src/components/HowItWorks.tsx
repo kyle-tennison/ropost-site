@@ -13,17 +13,17 @@ const STEPS = [
   {
     Icon: Bot,
     label: "Deploy",
-    body: "The robot releases from its dock with the package already in hand and drives down the walkway — wheels on the flat, legs for the curb and the steps.",
+    body: "The robot releases from its dock with the package already in its grasp and drives down the walkway — wheels on the flat, legs for the curb and the steps.",
   },
   {
     Icon: PackageCheck,
     label: "Place",
-    body: "At the door it lowers the package and sets it down. Placed, not dropped, and out of the weather where the recipient expects to find it.",
+    body: "At the door the arm lowers and releases. Placed, not dropped, and out of the weather where the recipient expects to find it.",
   },
   {
     Icon: Repeat,
     label: "Latch & reload",
-    body: "It returns, aligns itself, and latches back onto the vehicle. The next package comes off the rack in transit, so it's ready before the next stop is.",
+    body: "It returns, aligns to the dock, and latches back onto the vehicle. The next package comes off the rack in transit, so it's ready before the next stop is.",
   },
 ];
 

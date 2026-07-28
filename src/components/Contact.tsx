@@ -21,15 +21,15 @@ export function Contact() {
     <section className="section contact" id="contact">
       <div className="shell contact__inner">
         <Reveal>
-          <p className="eyebrow">Early days</p>
+          <p className="eyebrow">Where we are</p>
           <h2>
-            We're at the beginning. <em>That's the interesting part.</em>
+            Early enough to <em>build it right.</em>
           </h2>
           <p className="lede contact__lede">
-            ropost is pre-product and pre-everything else. We're talking with fleet operators and
-            logistics teams who feel the last thirty feet in their numbers, with investors who like
-            hard mechanical problems, and with roboticists who'd rather build the thing than
-            simulate it.
+            The design is in development. We're talking now with fleet operators and logistics
+            teams who feel the last thirty feet in their numbers, with investors who like hard
+            mechanical problems, and with roboticists who'd rather build the thing than simulate
+            it.
           </p>
 
           <form className="contact__form" onSubmit={handleSubmit}>
