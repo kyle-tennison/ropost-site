@@ -14,17 +14,18 @@ export function Hero() {
           <p className="eyebrow">Autonomous last-thirty-feet delivery</p>
 
           <h1 className="hero__title">
-            The truck solved the mile.
+            A robot and a truck,
             <br />
-            <em>Nobody solved the walk.</em>
+            <em>built as one loop.</em>
           </h1>
         </Reveal>
 
         <Reveal className="hero__foot" delay={180}>
           <p className="lede hero__lede">
-            A delivery robot with wheels for feet: it rolls where the ground is flat and walks
-            where it isn't. It rides on the truck, sets each package at the door, then latches
-            back on and reloads in motion — so the route never stops for the doorstep.
+            ropost is both halves: a legged robot with wheels for feet, and a delivery truck
+            modified to carry, dock, and reload it. The robot deploys at the curb, sets the
+            package at the door, and latches back on — then pulls the next package off the rack
+            while the truck is already driving to the next stop.
           </p>
 
           <div className="hero__actions">

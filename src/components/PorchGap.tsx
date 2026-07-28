@@ -1,22 +1,22 @@
-import { Boxes, Drone, TrafficCone } from "lucide-react";
+import { Footprints, Hourglass, Route } from "lucide-react";
 
 import { Reveal } from "./Reveal";
 
-const WORKAROUNDS = [
+const TRAITS = [
   {
-    Icon: TrafficCone,
-    title: "Sidewalk robots stop at the curb",
-    body: "They're built for flat, mapped pavement. One step, a steep lawn, or a closed gate ends the route — and the parcel gets carried the rest of the way by hand.",
+    Icon: Route,
+    title: "It starts where the road ends",
+    body: "The truck can only get as far as the curb. Everything past that point is private property — no lane, no map, no right of way, and nothing built for a vehicle.",
   },
   {
-    Icon: Drone,
-    title: "Drones solve distance, not the door",
-    body: "Clearing traffic is the easy part. Something still has to come down into a yard it can't see well, under a payload ceiling and an airspace approval.",
+    Icon: Footprints,
+    title: "No two are alike",
+    body: "Three steps and a railing at one house. A gravel path and a latched gate at the next. The variation is the problem: every porch is a one-off.",
   },
   {
-    Icon: Boxes,
-    title: "Lockers hand the walk to the customer",
-    body: "Pickup points and parcel boxes work, but by moving the last thirty feet onto the recipient. The trip doesn't disappear. It changes who makes it.",
+    Icon: Hourglass,
+    title: "It's where the day goes",
+    body: "Park, get out, walk it up, walk back, climb in. It's a short trip that happens at every stop on the route, and the truck sits idle for all of it.",
   },
 ];
 
@@ -26,21 +26,21 @@ export function PorchGap() {
       <div className="shell">
         <div className="section__head">
           <Reveal>
-            <p className="eyebrow">The porch gap</p>
+            <p className="eyebrow">The problem</p>
             <h2>
-              Everyone has routed <em>around it.</em>
+              Nobody's solved the <em>porch gap.</em>
             </h2>
             <p className="lede">
-              Every parcel delivered to a home ends the same way: someone gets out of the vehicle
-              and walks. Sortation, routing, and long-haul have each been rebuilt around
-              automation. The final thirty feet has not — and the approaches aimed at it have
-              mostly found ways to avoid it instead.
+              The porch gap is the last thirty feet of a delivery — the stretch between where the
+              truck can park and where the package actually has to end up. Every home delivery
+              ends by crossing it, and it is still crossed the same way it was a century ago: a
+              person picks up the box and walks.
             </p>
           </Reveal>
         </div>
 
         <div className="gap__grid">
-          {WORKAROUNDS.map(({ Icon, title, body }, i) => (
+          {TRAITS.map(({ Icon, title, body }, i) => (
             <Reveal key={title} className="card" delay={i * 110}>
               <span className="card__icon">
                 <Icon size={20} strokeWidth={1.5} aria-hidden />
@@ -53,7 +53,8 @@ export function PorchGap() {
 
         <Reveal className="gap__close" delay={140}>
           <p>
-            The one step nobody has automated is the step every delivery ends with.
+            Sidewalk robots stop at the curb. Drones stop overhead. Lockers hand the walk back to
+            the customer. The gap itself is still crossed on foot.
           </p>
         </Reveal>
       </div>

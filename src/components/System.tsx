@@ -36,12 +36,6 @@ export function System() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal className="system__quote" delay={160}>
-          <blockquote>
-            “Most delivery robots are designed to arrive. This one is designed to come back.”
-          </blockquote>
-        </Reveal>
       </div>
     </section>
   );
