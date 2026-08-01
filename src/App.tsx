@@ -22,7 +22,7 @@ export default function App() {
             ratio={1.578}
             sizes="100vw"
             alt="Inside the truck: the carrier robot docked on a rail alongside shelves of packages, with the loading arm overhead and the street visible through the open side."
-            caption="Rendered CAD model — hardware in development"
+            caption="Rendered CAD model"
           />
         </div>
         <Contact />

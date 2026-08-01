@@ -141,7 +141,6 @@ def main(outdir):
         widths=(2400, 1600, 1000),
         quality=70,
     )
-    photo(RENDERS / "on-ground.png", "curb", out)
     photo(RENDERS / "in-truck.png", "dock", out)
 
     print("line art:")

@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Bot, PackageCheck, Repeat, Truck } from "lucide-react";
 
 import { useSectionProgress } from "../hooks/useScroll";
-import { Drawing } from "./Figure";
+import { LoopVideo } from "./LoopVideo";
 import { Reveal } from "./Reveal";
 
 const STEPS = [
@@ -49,11 +49,13 @@ export function HowItWorks() {
             </Reveal>
           </div>
 
-          <Reveal className="how__drawing" delay={140}>
-            <Drawing
-              name="cad-dropoff"
-              ratio={1.082}
-              alt="CAD line drawing of the carrier robot with its cargo bed tilted forward to release a package, showing the four wheeled legs."
+          <Reveal className="how__clip" delay={140}>
+            <LoopVideo
+              name="loop-deploy"
+              poster="loop-deploy-poster.webp"
+              ratio={1.633}
+              alt="The truck's loading arm lowers the carrier robot, loaded with a package, from the cargo bay down to the street."
+              caption="AI-generated movement, for general idea only"
             />
           </Reveal>
         </div>

@@ -1,6 +1,6 @@
 import { Footprints, Hourglass, Route } from "lucide-react";
 
-import { Figure } from "./Figure";
+import { Drawing } from "./Figure";
 import { Reveal } from "./Reveal";
 
 type Trait = {
@@ -35,27 +35,28 @@ export function PorchGap() {
   return (
     <section className="section gap" id="gap">
       <div className="shell">
-        <div className="section__head">
-          <Reveal>
-            <p className="eyebrow">The problem</p>
-            <h2>
-              Nobody's solved the <em>porch gap.</em>
-            </h2>
-            <p className="lede">
-              The last thirty feet has no road. The only machine capable of bridging that gap
-              today is the human body. Ropost aims to change that.
-            </p>
+        <div className="gap__intro">
+          <div className="section__head">
+            <Reveal>
+              <p className="eyebrow">The problem</p>
+              <h2>
+                Nobody's solved the <em>porch gap.</em>
+              </h2>
+              <p className="lede">
+                The last thirty feet has no road. The only machine capable of bridging that gap
+                today is the human body. Ropost aims to change that.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal className="gap__shot" delay={120}>
+            <Drawing
+              name="cad-dropoff"
+              ratio={1.082}
+              alt="CAD line drawing of the carrier robot with its cargo bed tilted forward to release a package, showing the four wheeled legs."
+            />
           </Reveal>
         </div>
-
-        <Reveal className="gap__shot" delay={120}>
-          <Figure
-            name="curb"
-            ratio={1.643}
-            alt="A ropost truck parked at the curb with its side open on racked packages, the front door of the house it is delivering to visible across the lawn."
-            caption="Rendered CAD model — hardware in development"
-          />
-        </Reveal>
 
         <div className="gap__grid">
           {TRAITS.map(({ Icon, title, body, cite, href }, i) => (

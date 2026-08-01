@@ -57,7 +57,7 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <p className="hero__disclosure">Rendered CAD model — hardware in development</p>
+        <p className="hero__disclosure">Rendered CAD model</p>
       </div>
 
       <div className="hero__ticker" aria-hidden="true">
