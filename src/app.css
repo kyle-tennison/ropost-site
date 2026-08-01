@@ -268,7 +268,7 @@ em {
  */
 @media (max-width: 760px) {
   .hero__bg-img {
-    object-position: 40% 50%;
+    object-position: 55% 50%;
   }
 
   .hero__scrim {
