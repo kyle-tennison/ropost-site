@@ -115,7 +115,7 @@ def lockup(text, dot_scale=1.0):
     return o["paths"], (xmin, ymin, xmax, ymax), (dot_cx, dot_cy, dot_r), upem
 
 
-def svg(paths, ink, dot, box_w, box_h, width_attr, height_attr):
+def svg(paths, ink, dot, box_w, box_h, width_attr, height_attr, background=BACKDROP):
     """Places the ink box dead-centre in the output box."""
     xmin, ymin, xmax, ymax = ink
     dot_cx, dot_cy, dot_r = dot
@@ -125,9 +125,10 @@ def svg(paths, ink, dot, box_w, box_h, width_attr, height_attr):
     off_x = (box_w - (xmax - xmin)) / 2 - xmin
     off_y = (box_h - (ymax - ymin)) / 2 + ymax
 
+    plate = f'\n  <rect width="{box_w:.0f}" height="{box_h:.0f}" fill="{background}"/>' if background else ""
+
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {box_w:.0f} {box_h:.0f}" width="{width_attr}" height="{height_attr}" role="img" aria-label="ropost">
-  <title>ropost</title>
-  <rect width="{box_w:.0f}" height="{box_h:.0f}" fill="{BACKDROP}"/>
+  <title>ropost</title>{plate}
   <g transform="translate({off_x:.1f} {off_y:.1f}) scale(1 -1)">
     <g fill="{CREAM}">
       {paths}
@@ -159,6 +160,27 @@ def build_mark():
     return svg(paths, ink, dot, side, side, "512", "512")
 
 
+def build_transparent(text, dot_scale=1.0, height_px=220):
+    """
+    No plate, cropped tight to the ink. Whatever places this asset owns the
+    padding, so the box is exactly the artwork.
+    """
+    paths, ink, dot, upem = lockup(text, dot_scale=dot_scale)
+    ink_w, ink_h = ink[2] - ink[0], ink[3] - ink[1]
+    scale = height_px / ink_h
+
+    return svg(
+        paths,
+        ink,
+        dot,
+        ink_w,
+        ink_h,
+        f"{ink_w * scale:.0f}",
+        f"{ink_h * scale:.0f}",
+        background=None,
+    )
+
+
 if __name__ == "__main__":
     import pathlib
     import sys
@@ -167,4 +189,8 @@ if __name__ == "__main__":
     out.mkdir(parents=True, exist_ok=True)
     (out / "ropost-wordmark.svg").write_text(build_wordmark())
     (out / "ropost-mark.svg").write_text(build_mark())
+    (out / "ropost-wordmark-transparent.svg").write_text(build_transparent("ropost"))
+    (out / "ropost-mark-transparent.svg").write_text(
+        build_transparent("r", dot_scale=0.585, height_px=180)
+    )
     print("wrote", out)
