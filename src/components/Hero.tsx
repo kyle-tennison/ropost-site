@@ -1,7 +1,6 @@
 import { useRef } from "react";
 
 import { useScrollVar } from "../hooks/useScroll";
-import { Figure } from "./Figure";
 import { Reveal } from "./Reveal";
 
 export function Hero() {
@@ -10,6 +9,22 @@ export function Hero() {
 
   return (
     <section className="hero" id="top">
+      <div className="hero__bg" aria-hidden="true">
+        <img
+          className="hero__bg-img"
+          src="/media/hero-1600.webp"
+          srcSet="/media/hero-1000.webp 1000w, /media/hero-1600.webp 1600w, /media/hero-2400.webp 2400w"
+          sizes="100vw"
+          alt=""
+          width={2400}
+          height={1038}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="hero__scrim" />
+      </div>
+
       <div className="shell hero__inner" ref={inner}>
         <div className="hero__copy">
           <Reveal delay={80}>
@@ -42,15 +57,7 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal className="hero__art" delay={280}>
-          <Figure
-            name="deploy"
-            ratio={1.616}
-            priority
-            alt="A ropost delivery truck at the curb with its side open, a robot arm inside reaching for a package on the rack, and the carrier robot stepping down onto the street on wheeled legs."
-            caption="Rendered CAD model — hardware in development"
-          />
-        </Reveal>
+        <p className="hero__disclosure">Rendered CAD model — hardware in development</p>
       </div>
 
       <div className="hero__ticker" aria-hidden="true">

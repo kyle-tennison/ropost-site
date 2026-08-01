@@ -202,42 +202,81 @@ em {
 
 .hero {
   position: relative;
-  padding-top: clamp(8rem, 15vw, 11rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* svh so mobile browser chrome doesn't push the ticker out of view */
+  min-height: 100svh;
   overflow: hidden;
 }
 
-/* warm light falling from the upper right + faint corrugation */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: -20% -10% auto auto;
-  width: 90vw;
-  height: 900px;
-  background: radial-gradient(
-    50% 50% at 70% 35%,
-    rgb(176 124 78 / 0.34),
-    rgb(176 124 78 / 0) 70%
-  );
-  pointer-events: none;
-}
-
-.hero::after {
-  content: "";
+.hero__bg {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  opacity: 0.5;
-  background-image: repeating-linear-gradient(
-    90deg,
-    rgb(224 190 149 / 0.05) 0 1px,
-    transparent 1px 64px
-  );
-  mask-image: linear-gradient(to bottom, transparent, #000 30%, transparent);
+  z-index: 0;
+}
+
+.hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* bias right of centre: keeps the truck and robot in frame as the
+     viewport narrows and the crop eats the edges */
+  object-position: 62% 50%;
+}
+
+/*
+ * The render is bright — sky, road, lawn. Cream type needs something to sit
+ * on, so: a warm wash over everything, a heavier ramp from the left where the
+ * copy lives, and a foot that carries it into the ticker.
+ */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgb(23 16 9 / 0.93) 0%,
+      rgb(23 16 9 / 0.86) 30%,
+      rgb(23 16 9 / 0.5) 52%,
+      rgb(23 16 9 / 0.14) 72%,
+      rgb(23 16 9 / 0.3) 100%
+    ),
+    linear-gradient(to bottom, rgb(23 16 9 / 0.7) 0%, transparent 22%),
+    linear-gradient(to top, var(--ink-900) 0%, rgb(23 16 9 / 0.35) 15%, transparent 42%);
 }
 
 .hero__inner {
   position: relative;
-  padding-bottom: clamp(3rem, 7vw, 6rem);
+  z-index: 1;
+  padding-top: clamp(7rem, 14vw, 10rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-top: auto;
+}
+
+.hero__disclosure {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--cream-45);
+}
+
+/*
+ * Portrait crops this 2.3:1 render down to a fifth of its width, so the
+ * framing moves onto the robot itself and the scrim turns vertical — the
+ * left-to-right ramp does nothing once the copy spans the full column.
+ */
+@media (max-width: 760px) {
+  .hero__bg-img {
+    object-position: 40% 50%;
+  }
+
+  .hero__scrim {
+    background:
+      linear-gradient(to bottom, rgb(23 16 9 / 0.86) 0%, rgb(23 16 9 / 0.6) 30%,
+        rgb(23 16 9 / 0.72) 62%, var(--ink-900) 100%),
+      linear-gradient(to right, rgb(23 16 9 / 0.45), rgb(23 16 9 / 0.2));
+  }
 }
 
 /*
@@ -246,44 +285,48 @@ em {
  * the whole way past.
  */
 .hero__copy {
+  /* held to the scrimmed left column so the render stays bright on the right */
+  max-width: 53rem;
   transform: translateY(calc(var(--scroll, 0) * 0.16px));
   opacity: calc(1 - var(--scroll, 0) / 720);
   will-change: transform;
 }
 
 .hero__title {
-  font-size: clamp(2.8rem, 7.3vw, 6.1rem);
+  font-size: clamp(2.5rem, 5vw, 4.3rem);
   font-variation-settings: "SOFT" 70, "WONK" 1;
+  /* holds the type against the bright cargo bay without scrimming the
+     whole render down */
+  text-shadow: 0 2px 28px rgb(23 16 9 / 0.72);
 }
 
-/* lede on the left, actions pinned right, sharing a baseline band */
+.hero__lede,
+.hero__inner .eyebrow {
+  text-shadow: 0 1px 16px rgb(23 16 9 / 0.8);
+}
+
 .hero__foot {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 2rem 3rem;
-  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  margin-top: clamp(1.5rem, 2.5vw, 2rem);
 }
 
 .hero__lede {
-  max-width: 52ch;
+  max-width: 46ch;
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
-}
-
-.hero__art {
-  margin-top: clamp(2.5rem, 5vw, 4rem);
+  margin-top: clamp(1.6rem, 3vw, 2.2rem);
 }
 
 /* marquee strip closing the hero */
 .hero__ticker {
   position: relative;
+  z-index: 1;
   border-block: 1px solid var(--hairline);
-  background: rgb(38 27 18 / 0.6);
+  background: rgb(38 27 18 / 0.72);
+  backdrop-filter: blur(6px);
   overflow: hidden;
   padding-block: 0.85rem;
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);

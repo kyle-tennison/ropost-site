@@ -32,14 +32,14 @@ def webp(img: Image.Image, dest: pathlib.Path, width: int, quality=76):
     return dest.stat().st_size
 
 
-def photo(src: pathlib.Path, stem: str, out: pathlib.Path, crop=None):
+def photo(src: pathlib.Path, stem: str, out: pathlib.Path, crop=None, widths=WIDTHS, quality=76):
     img = Image.open(src)
     if crop:
         img = img.crop(crop)
-    for w in WIDTHS:
+    for w in widths:
         if w > img.width:
             continue
-        size = webp(img, out / f"{stem}-{w}.webp", w)
+        size = webp(img, out / f"{stem}-{w}.webp", w, quality=quality)
         print(f"  {stem}-{w}.webp  {size/1024:>6.0f} KB")
 
 
@@ -132,7 +132,15 @@ def main(outdir):
     # The doorstep renders are deliberately unused: they show the same
     # package-release pose as the cad-dropoff line drawing, which reads better.
     print("photos:")
-    photo(RENDERS / "unload.png", "deploy", out)
+    # hero background: sits behind text under a scrim, so it can take a lower
+    # quality than the inline figures without showing
+    photo(
+        RENDERS / "wide-unload.png",
+        "hero",
+        out,
+        widths=(2400, 1600, 1000),
+        quality=70,
+    )
     photo(RENDERS / "on-ground.png", "curb", out)
     photo(RENDERS / "in-truck.png", "dock", out)
 
