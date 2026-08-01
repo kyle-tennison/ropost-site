@@ -258,7 +258,7 @@ body::before {
     transition: none;
   }
 
-  .hero__inner {
+  .hero__copy {
     transform: none;
     opacity: 1;
   }

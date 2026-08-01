@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 
+import { Drawing } from "./Figure";
 import { Reveal } from "./Reveal";
 
 export const CONTACT_EMAIL = "hello@ropost.ai";
@@ -20,7 +21,7 @@ export function Contact() {
   return (
     <section className="section contact" id="contact">
       <div className="shell contact__inner">
-        <Reveal>
+        <Reveal className="contact__copy">
           <p className="eyebrow">Where we are</p>
           <h2>
             We're building it <em>now.</em>
@@ -56,6 +57,14 @@ export function Contact() {
             Opens your mail app — or write us directly at{" "}
             <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
           </p>
+        </Reveal>
+
+        <Reveal className="contact__drawing" delay={160}>
+          <Drawing
+            name="cad-load"
+            ratio={1.129}
+            alt="CAD line drawing of the carrier robot standing on its wheeled legs while the truck's loading arm reaches down to its cargo bed."
+          />
         </Reveal>
       </div>
     </section>

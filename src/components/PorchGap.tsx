@@ -1,5 +1,6 @@
 import { Footprints, Hourglass, Route } from "lucide-react";
 
+import { Figure } from "./Figure";
 import { Reveal } from "./Reveal";
 
 type Trait = {
@@ -7,6 +8,7 @@ type Trait = {
   title: string;
   body: string;
   cite?: string;
+  href?: string;
 };
 
 const TRAITS: Trait[] = [
@@ -23,8 +25,9 @@ const TRAITS: Trait[] = [
   {
     Icon: Hourglass,
     title: "It costs the most time",
-    body: "On urban routes the walk dominates the day. One New York City study found drivers spent close to 80 percent of their time parked rather than driving.",
-    cite: "Holguín-Veras, Amaya-Leal & Wojtowicz, Impacts of Freight Parking Policies in Urban Areas: The Case of New York City (2016)",
+    body: "On urban routes the walk dominates the day. Ride-along studies put the share of a driver's time spent parked and walking between 62 and 80 percent.",
+    cite: "Dalla Chiara & Goodchild, “The role of walking in last-mile urban deliveries”, Transportation (2025)",
+    href: "https://doi.org/10.1007/s11116-025-10633-6",
   },
 ];
 
@@ -45,15 +48,34 @@ export function PorchGap() {
           </Reveal>
         </div>
 
+        <Reveal className="gap__shot" delay={120}>
+          <Figure
+            name="curb"
+            ratio={1.643}
+            alt="A ropost truck parked at the curb with its side open on racked packages, the front door of the house it is delivering to visible across the lawn."
+            caption="Rendered CAD model — hardware in development"
+          />
+        </Reveal>
+
         <div className="gap__grid">
-          {TRAITS.map(({ Icon, title, body, cite }, i) => (
+          {TRAITS.map(({ Icon, title, body, cite, href }, i) => (
             <Reveal key={title} className="card" delay={i * 110}>
               <span className="card__icon">
                 <Icon size={20} strokeWidth={1.5} aria-hidden />
               </span>
               <h3>{title}</h3>
               <p>{body}</p>
-              {cite && <cite className="card__cite">{cite}</cite>}
+              {cite && (
+                <cite className="card__cite">
+                  {href ? (
+                    <a href={href} target="_blank" rel="noreferrer noopener">
+                      {cite}
+                    </a>
+                  ) : (
+                    cite
+                  )}
+                </cite>
+              )}
             </Reveal>
           ))}
         </div>

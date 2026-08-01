@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Bot, PackageCheck, Repeat, Truck } from "lucide-react";
 
 import { useSectionProgress } from "../hooks/useScroll";
+import { Drawing } from "./Figure";
 import { Reveal } from "./Reveal";
 
 const STEPS = [
@@ -34,16 +35,26 @@ export function HowItWorks() {
   return (
     <section className="section how" id="how">
       <div className="shell">
-        <div className="section__head">
-          <Reveal>
-            <p className="eyebrow">How it works</p>
-            <h2>
-              One robot, one vehicle, <em>less idle time.</em>
-            </h2>
-            <p className="lede">
-              The design is constrained by one requirement: the robot has to return to the truck
-              and dock without help.
-            </p>
+        <div className="how__intro">
+          <div className="section__head">
+            <Reveal>
+              <p className="eyebrow">How it works</p>
+              <h2>
+                One robot, one vehicle, <em>less idle time.</em>
+              </h2>
+              <p className="lede">
+                The design is constrained by one requirement: the robot has to return to the truck
+                and dock without help.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal className="how__drawing" delay={140}>
+            <Drawing
+              name="cad-dropoff"
+              ratio={1.082}
+              alt="CAD line drawing of the carrier robot with its cargo bed tilted forward to release a package, showing the four wheeled legs."
+            />
           </Reveal>
         </div>
 

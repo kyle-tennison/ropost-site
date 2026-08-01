@@ -36,6 +36,76 @@ em {
   background: linear-gradient(90deg, var(--kraft-600), var(--tape));
 }
 
+/* ============================================================== media */
+
+.figure {
+  margin: 0;
+  position: relative;
+}
+
+.figure__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--hairline);
+  background: var(--ink-800);
+  /* the renders are warm already; this just seats them on the page */
+  box-shadow: 0 40px 80px -50px rgb(0 0 0 / 0.9);
+}
+
+.figure__cap {
+  margin-top: 0.85rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--cream-45);
+}
+
+/* full-bleed band, escaping the shell */
+.bleed {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*
+ * Deliberately uncropped. Any object-fit crop tight enough to control the
+ * band height either cuts the robot's head off or drops the render's own
+ * "AI Rendered CAD Model" watermark, so the full frame stays.
+ */
+.bleed .figure__img {
+  border-radius: 0;
+  border-inline: 0;
+  box-shadow: none;
+}
+
+/* the render is bright at the base; the caption needs something to sit on */
+.bleed .figure::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 40%;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, rgb(23 16 9 / 0.85));
+}
+
+.bleed .figure__cap {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 1.1rem;
+  z-index: 1;
+  margin: 0;
+  color: var(--cream-70);
+}
+
+/* CAD line art — already cream on transparency */
+.drawing {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.85;
+}
+
 /* ================================================================= nav */
 
 .nav {
@@ -165,12 +235,19 @@ em {
   mask-image: linear-gradient(to bottom, transparent, #000 30%, transparent);
 }
 
-/* --scroll is published by useScrollVar; the hero drifts and dims as it leaves */
 .hero__inner {
   position: relative;
-  padding-bottom: clamp(5rem, 10vw, 8.5rem);
+  padding-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+/*
+ * --scroll is published onto .hero__inner by useScrollVar and inherits down.
+ * Only the copy drifts and dims — the render below it has to stay legible
+ * the whole way past.
+ */
+.hero__copy {
   transform: translateY(calc(var(--scroll, 0) * 0.16px));
-  opacity: calc(1 - var(--scroll, 0) / 620);
+  opacity: calc(1 - var(--scroll, 0) / 720);
   will-change: transform;
 }
 
@@ -196,6 +273,10 @@ em {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
+}
+
+.hero__art {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
 }
 
 /* marquee strip closing the hero */
@@ -253,11 +334,15 @@ em {
 
 /* ========================================================== porch gap */
 
+.gap__shot {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
 .gap__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.25rem;
-  margin-top: clamp(3rem, 6vw, 4.5rem);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 .card {
@@ -319,6 +404,17 @@ em {
   color: var(--cream-45);
 }
 
+.card__cite a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--kraft-600);
+  transition: color 0.3s var(--ease);
+}
+
+.card__cite a:hover {
+  color: var(--kraft-300);
+}
+
 /* the line that lands the section */
 .gap__close {
   margin-top: clamp(2.5rem, 5vw, 3.75rem);
@@ -341,6 +437,30 @@ em {
 .how {
   background: linear-gradient(180deg, var(--ink-900), var(--ink-800) 30%, var(--ink-900));
   border-block: 1px solid var(--hairline);
+}
+
+/* section intro sits beside the CAD drawing */
+.how__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.72fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.how__drawing {
+  /* the drawing reads as a technical aside, not a hero */
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+@media (max-width: 880px) {
+  .how__intro {
+    grid-template-columns: 1fr;
+  }
+
+  .how__drawing {
+    max-width: 320px;
+  }
 }
 
 .how__steps {
@@ -456,7 +576,30 @@ em {
 
 .contact__inner {
   position: relative;
-  max-width: 860px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.contact__copy {
+  max-width: 46rem;
+}
+
+.contact__drawing {
+  max-width: 380px;
+  margin-inline: auto;
+}
+
+@media (max-width: 900px) {
+  .contact__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__drawing {
+    max-width: 300px;
+    margin-inline: 0;
+  }
 }
 
 .contact h2 {
