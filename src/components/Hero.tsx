@@ -17,7 +17,7 @@ export function Hero() {
           sizes="100vw"
           alt=""
           width={2400}
-          height={1038}
+          height={1029}
           loading="eager"
           fetchPriority="high"
           decoding="async"

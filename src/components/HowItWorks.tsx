@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Bot, PackageCheck, Repeat, Truck } from "lucide-react";
 
 import { useSectionProgress } from "../hooks/useScroll";
-import { Figure } from "./Figure";
+import { Drawing } from "./Figure";
 import { Reveal } from "./Reveal";
 
 const STEPS = [
@@ -50,12 +50,10 @@ export function HowItWorks() {
           </div>
 
           <Reveal className="how__shot" delay={140}>
-            <Figure
-              name="curb"
-              ratio={1.643}
-              sizes="(max-width: 880px) 100vw, 480px"
-              alt="A Ropost truck parked at the curb with its side open on racked packages and the loading arm extended, the front door of the house it is delivering to visible across the lawn."
-              caption="Rendered CAD model"
+            <Drawing
+              name="cad-bay"
+              ratio={1.327}
+              alt="CAD section through the truck's cargo bay: the overhead arm lowering a package, the carrier robot docked on its rail with a loaded crate, and shelves of packages either side."
             />
           </Reveal>
         </div>

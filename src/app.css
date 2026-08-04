@@ -130,22 +130,16 @@ em {
   height: 74px;
 }
 
+/* the lockup is an image now; height drives it, width follows the 4.72 ratio */
 .wordmark {
-  font-family: var(--display);
-  font-variation-settings: "SOFT" 80, "WONK" 1;
-  font-size: 1.45rem;
-  font-weight: 500;
-  letter-spacing: -0.03em;
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
 }
 
-.wordmark__dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--tape);
-  margin-left: 4px;
+.wordmark img {
+  display: block;
+  height: 28px;
+  width: auto;
 }
 
 .nav__links {
@@ -204,7 +198,6 @@ em {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   /* svh so mobile browser chrome doesn't push the ticker out of view */
   min-height: 100svh;
   overflow: hidden;
@@ -246,12 +239,22 @@ em {
     linear-gradient(to top, var(--ink-900) 0%, rgb(23 16 9 / 0.35) 15%, transparent 42%);
 }
 
+/*
+ * Grows to fill the hero and centres its own content, so extra viewport
+ * height splits above and below the copy. Bottom-pinning it sent the text
+ * to the floor on tall or zoomed-out windows. The top padding clears the
+ * fixed nav and biases the block slightly low, which reads as optical
+ * centre rather than dead centre.
+ */
 .hero__inner {
   position: relative;
   z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding-top: clamp(7rem, 14vw, 10rem);
   padding-bottom: clamp(2.5rem, 5vw, 4rem);
-  margin-top: auto;
 }
 
 .hero__disclosure {

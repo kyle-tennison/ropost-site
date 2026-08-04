@@ -19,7 +19,14 @@ export function Nav() {
     <header className={`nav ${stuck ? "is-stuck" : ""}`}>
       <div className="shell nav__inner">
         <a href="#top" className="wordmark" aria-label="Ropost, home">
-          Ropost<span className="wordmark__dot" />
+          <img
+            src="/media/wordmark-300.webp"
+            srcSet="/media/wordmark-300.webp 300w, /media/wordmark-600.webp 600w"
+            sizes="132px"
+            alt="Ropost"
+            width={600}
+            height={127}
+          />
         </a>
 
         <nav className="nav__links" aria-label="Sections">
