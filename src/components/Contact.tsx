@@ -3,7 +3,7 @@ import { useState, type FormEvent } from "react";
 import { Drawing } from "./Figure";
 import { Reveal } from "./Reveal";
 
-export const CONTACT_EMAIL = "hello@ropost.ai";
+export const CONTACT_EMAIL = "hello@Ropost.ai";
 
 export function Contact() {
   const [email, setEmail] = useState("");
@@ -11,7 +11,7 @@ export function Contact() {
   // No backend yet — hand the message off to the visitor's own mail client.
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const subject = encodeURIComponent("Hello from ropost.ai");
+    const subject = encodeURIComponent("Hello from Ropost.ai");
     const body = encodeURIComponent(
       `Reply to: ${email}\n\nA bit about me / what I'm interested in:\n`,
     );

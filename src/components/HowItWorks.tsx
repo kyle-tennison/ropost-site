@@ -9,22 +9,22 @@ const STEPS = [
   {
     Icon: Truck,
     label: "Arrive",
-    body: "The truck stops at the curb as it does today. No dedicated lane, no permit, nothing installed at the house.",
+    body: "The truck stops at the curb as it does today. A human delivery driver is still in the loop to adjust the truck or help the robot if needed.",
   },
   {
     Icon: Bot,
     label: "Deploy",
-    body: "The robot releases from its dock with the package already in its grasp. Wheels on the flat, legs for the curb and the steps.",
+    body: "The robot is in the back, pre-loaded with a package. When the driver arrives, it's released from the truck and drives off to the delivery address.",
   },
   {
     Icon: PackageCheck,
     label: "Place",
-    body: "At the door the arm lowers and releases the package. It is placed rather than dropped, under cover where there is any.",
+    body: "At the door, the robot drops its tailgate, and the package slides out. If it gets stuck, the robot can shimmy it out.",
   },
   {
     Icon: Repeat,
     label: "Latch & reload",
-    body: "It returns, aligns to the dock, and latches on. The next package comes off the rack in transit, so it's ready before the truck stops.",
+    body: "The robot returns to its truck and latches itself to the robot arm, which lifts it onto the rails. At this point, the driver can depart. While en route to the next address, the robot is automatically reloaded with the next package.",
   },
 ];
 
@@ -43,8 +43,8 @@ export function HowItWorks() {
                 One robot, one vehicle, <em>less idle time.</em>
               </h2>
               <p className="lede">
-                The design is constrained by one requirement: the robot has to return to the truck
-                and dock without help.
+                The design is constrained by one requirement: the robot has to get itself back onto
+                the truck at every stop.
               </p>
             </Reveal>
           </div>
@@ -54,7 +54,7 @@ export function HowItWorks() {
               name="curb"
               ratio={1.643}
               sizes="(max-width: 880px) 100vw, 480px"
-              alt="A ropost truck parked at the curb with its side open on racked packages and the loading arm extended, the front door of the house it is delivering to visible across the lawn."
+              alt="A Ropost truck parked at the curb with its side open on racked packages and the loading arm extended, the front door of the house it is delivering to visible across the lawn."
               caption="Rendered CAD model"
             />
           </Reveal>

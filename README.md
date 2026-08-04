@@ -1,4 +1,4 @@
-# ropost — landing page
+# Ropost — landing page
 
 Single-page marketing site. React + TypeScript + Vite, no UI framework.
 
@@ -27,5 +27,5 @@ Copy in the section files is plain data at the top of each module — edit the a
 
 - **The contact form has no backend.** Submitting builds a `mailto:` link and hands off to the
   visitor's mail client. Swap `handleSubmit` in `Contact.tsx` when there's somewhere to POST to.
-- `hello@ropost.ai` is a placeholder; it appears in `Contact.tsx` and flows to the footer.
+- `hello@Ropost.ai` is a placeholder; it appears in `Contact.tsx` and flows to the footer.
 - Type is Fraunces (display) + Inter (body), loaded from Google Fonts in `index.html`.

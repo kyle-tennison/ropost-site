@@ -40,7 +40,7 @@ export function PorchGap() {
             <Reveal>
               <p className="eyebrow">The problem</p>
               <h2>
-                Nobody's solved the <em>porch gap.</em>
+                Nobody has solved the <em>porch gap.</em>
               </h2>
               <p className="lede">
                 The last thirty feet has no road. The only machine capable of bridging that gap

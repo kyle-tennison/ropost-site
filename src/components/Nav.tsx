@@ -18,8 +18,8 @@ export function Nav() {
   return (
     <header className={`nav ${stuck ? "is-stuck" : ""}`}>
       <div className="shell nav__inner">
-        <a href="#top" className="wordmark" aria-label="ropost, home">
-          ropost<span className="wordmark__dot" />
+        <a href="#top" className="wordmark" aria-label="Ropost, home">
+          Ropost<span className="wordmark__dot" />
         </a>
 
         <nav className="nav__links" aria-label="Sections">

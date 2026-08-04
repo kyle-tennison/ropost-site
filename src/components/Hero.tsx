@@ -28,12 +28,12 @@ export function Hero() {
       <div className="shell hero__inner" ref={inner}>
         <div className="hero__copy">
           <Reveal delay={80}>
-            <p className="eyebrow">Autonomous last-thirty-feet delivery</p>
+            <p className="eyebrow">Filling the porch gap</p>
 
             <h1 className="hero__title">
-              The truck solved the mile.
+              Building delivery robots
               <br />
-              <em>Nobody solved the walk.</em>
+              <em>that scale.</em>
             </h1>
           </Reveal>
 
